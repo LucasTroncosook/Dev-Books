@@ -1,0 +1,35 @@
+---
+	import "../styles/global.css"
+	import { ClientRouter } from "astro:transitions"
+	interface Props {
+		title: String
+	}
+
+	const {title} = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+		<ClientRouter/>
+	</head>
+	<body class="bg-black/95">
+		<div>
+			<slot />
+		</div>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		@apply grid place-content-center;
+	}
+	body > div {
+		@apply container;
+	}
+</style>
